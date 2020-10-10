@@ -7,7 +7,7 @@
       <div class="nav-menu">
         <template v-for="(item, key) in navItem">
           <a :key="key" :href="item.link" class="nav-menu_item">
-            {{item.title}}
+            {{ item.title }}
           </a>
         </template>
       </div>
@@ -25,45 +25,45 @@ query {
 
 <script lang="ts">
 import Vue from 'vue'
-interface Link{
-  title: String,
+interface Link {
+  title: String
   link: String
 }
-interface Menu{
-  home: Link,
+interface Menu {
+  home: Link
   aboutMe: Link
 }
-interface Data{
+interface Data {
   navItem: Menu
 }
 export default Vue.extend({
   name: 'Navbar',
-  data () : Data{
+  data(): Data {
     return {
       navItem: {
         home: {
           title: 'Home',
-          link: '/'
+          link: '/',
         },
         aboutMe: {
           title: 'About me',
-          link: '#'
-        }
-      }
+          link: '#',
+        },
+      },
     }
-  }
+  },
 })
 </script>
 
 <style scoped>
-.nav{
+.nav {
   position: relative;
   display: flex;
   justify-content: center;
   right: 0;
   left: 0;
   height: 3.25rem;
-  background: #112D32;
+  background: #112d32;
   color: rgb(202, 220, 223);
   z-index: 20;
   /* box-shadow: 0 1px 1px rgba(0,0,0,0.15), 
@@ -71,37 +71,37 @@ export default Vue.extend({
               0 4px 4px rgba(0,0,0,0.15), 
               0 8px 8px rgba(0,0,0,0.15); */
 }
-.nav-container{
+.nav-container {
   display: flex;
   justify-content: space-between;
   height: 100%;
   max-width: 1080px;
-  width: 100%
+  width: 100%;
 }
 
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
   .nav-container {
     padding-left: 10px;
     padding-right: 10px;
   }
 }
 
-.nav-band_logo{
+.nav-band_logo {
   display: flex;
-  align-items: center
+  align-items: center;
 }
-.nav-menu{
+.nav-menu {
   display: flex;
-  align-items: center
+  align-items: center;
 }
 .nav-menu_item {
   text-decoration: none;
-  color: inherit
+  color: inherit;
 }
-.nav-menu_item:not(:last-child){
+.nav-menu_item:not(:last-child) {
   margin-right: 20px;
 }
-.nav-menu{
-  display: flex
+.nav-menu {
+  display: flex;
 }
 </style>

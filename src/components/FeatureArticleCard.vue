@@ -1,7 +1,11 @@
 <template>
   <div class="_flex feature-card">
     <div class="_flex _column _justify_content_around info-section">
-      <div v-for="(tag, index) in info.tags" :key="index" class="_flex badge-container">
+      <div
+        v-for="(tag, index) in info.tags"
+        :key="index"
+        class="_flex badge-container"
+      >
         <badge class="mr-1">
           {{ tag.name }}
         </badge>
@@ -39,109 +43,109 @@ export default Vue.extend({
   props: {
     info: {
       type: Object,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 })
 </script>
 
 <style lang="scss">
-  .feature-card {
-    position: relative;
-    min-height: 300px;
-    width: 60%;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid #3D585D;
-    margin: 0 auto;
-    margin-top: -200px;
-    flex-direction: row;
-    & .info-section {
-      width: 45%;
-      background-color: #3D585D;
-      padding: 5px;
-      color: white;
-      & .title {
-        font-size: 1.2em;
-        font-weight: 700;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        text-decoration: none;
-        color:inherit
-      }
-      & .article-content {
+.feature-card {
+  position: relative;
+  min-height: 300px;
+  width: 60%;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #3d585d;
+  margin: 0 auto;
+  margin-top: -200px;
+  flex-direction: row;
+  & .info-section {
+    width: 45%;
+    background-color: #3d585d;
+    padding: 5px;
+    color: white;
+    & .title {
+      font-size: 1.2em;
+      font-weight: 700;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      text-decoration: none;
+      color: inherit;
+    }
+    & .article-content {
+      font-size: 0.8em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      line-height: 1.4em;
+      max-height: calc(1.4em * 3);
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      margin-top: 1em;
+      font-weight: 300;
+    }
+    & .badge-container {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      font-weight: 300;
+    }
+    & .author {
+      font-weight: 300;
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+      & .date {
         font-size: 0.8em;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
-        line-height: 1.4em;
-        max-height: calc(1.4em * 3);
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        margin-top: 1em;
-        font-weight: 300;
       }
-      & .badge-container {
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        font-weight: 300;
-      }
-      & .author {
-        font-weight: 300;
-        margin-left: 0.5em;
+      & .img {
+        width: 50px;
+        height: 50px;
+        background-color: antiquewhite;
+        border-radius: 60px;
         margin-right: 0.5em;
-        & .date {
-          font-size: 0.8em;
-        }
-        & .img {
-          width: 50px;
-          height: 50px;
-          background-color: antiquewhite;
-          border-radius: 60px;
-          margin-right: 0.5em;
-          overflow: hidden;
-          & img {
-            width: 100%;
-          }
+        overflow: hidden;
+        & img {
+          width: 100%;
         }
       }
+    }
+  }
+  & .img-section {
+    width: 55%;
+    background-color: white;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .feature-card {
+    flex-direction: column;
+    width: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    & .info-section {
+      width: calc(100% - 2em);
+      order: 2;
+      padding: 1em;
     }
     & .img-section {
-      width: 55%;
-      background-color: white;
-      img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-    }
-  }
-  @media (max-width: 768px) { 
-    .feature-card {
-      flex-direction: column;
       width: 100%;
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover
-      }
-      & .info-section {
-        width: calc(100% - 2em);
-        order: 2;
-        padding: 1em;
-      }
-      & .img-section {
-        width: 100%;
-        height: 200px;
-      }
-      & .author {
-        margin-top: 1em
-      }
+      height: 200px;
+    }
+    & .author {
+      margin-top: 1em;
     }
   }
-  .cm {
-    margin:0
-  }
+}
+.cm {
+  margin: 0;
+}
 </style>

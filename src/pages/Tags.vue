@@ -30,12 +30,12 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  name: 'Tag'
+  name: 'Tag',
 })
 </script>
 
 <style lang="scss" scoped>
-  a {
-    color: black
-  }
+a {
+  color: black;
+}
 </style>

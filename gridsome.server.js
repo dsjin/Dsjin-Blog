@@ -12,26 +12,27 @@ module.exports = function (api) {
 
   api.createPages(async ({ graphql, createPage }) => {
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
-    const { data } = await graphql(`{
-      allGhostTag{
-        edges {
-         node {
-           id
-           slug
-           name
-         }
+    const { data } = await graphql(`
+      {
+        allGhostTag {
+          edges {
+            node {
+              id
+              slug
+              name
+            }
+          }
         }
       }
-    }`)
+    `)
     data.allGhostTag.edges.forEach(({ node }) => {
-      console.log(node)
       createPage({
         path: `/tag/${node.slug}/`,
         component: './src/templates/Tag.vue',
         context: {
           id: node.id,
-          name: node.name
-        }
+          name: node.name,
+        },
       })
     })
   })

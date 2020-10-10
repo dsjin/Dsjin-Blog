@@ -1,12 +1,14 @@
 <template>
-  <div
-    class="artical-card"
-  >
+  <div class="artical-card">
     <div class="img-section">
       <g-image :src="info.coverImage ? info.coverImage : '/default.png'" />
     </div>
     <div class="info-section">
-      <div v-for="(tag, index) in info.tags" :key="index" class="_flex badge-container">
+      <div
+        v-for="(tag, index) in info.tags"
+        :key="index"
+        class="_flex badge-container"
+      >
         <badge class="mr-1">
           {{ tag.name }}
         </badge>
@@ -41,83 +43,83 @@ export default Vue.extend({
   props: {
     info: {
       type: Object,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 })
 </script>
 
 <style lang="scss">
-  .artical-card {
-    width: calc(33.33% - 1em);
-    border-radius: 20px;
-    overflow: hidden;
-    margin-bottom: 1em;
-    margin-right: 1em;
-    color: white;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover
+.artical-card {
+  width: calc(33.33% - 1em);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 1em;
+  margin-right: 1em;
+  color: white;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  & .img-section {
+    height: 200px;
+  }
+  & .info-section {
+    padding: 1em;
+    background-color: #3d585d;
+    height: 100%;
+    & .title {
+      font-size: 1.2em;
+      font-weight: 700;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      text-decoration: none;
+      color: inherit;
     }
-    & .img-section {
-      height: 200px;
+    & .article-content {
+      font-size: 0.8em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      line-height: 1.4em;
+      max-height: calc(1.4em * 3);
+      min-height: calc(1.4em * 3);
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      margin-top: 1em;
+      font-weight: 300;
     }
-    & .info-section {
-      padding: 1em;
-      background-color: #3D585D;
-      height: 100%;
-      & .title {
-        font-size: 1.2em;
-        font-weight: 700;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        text-decoration: none;
-        color:inherit
-      }
-      & .article-content {
+    & .badge {
+      margin-left: 1em;
+      margin-right: 1em;
+      font-weight: 300;
+    }
+    & .author {
+      font-weight: 300;
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+      margin-top: 1em;
+      & .date {
         font-size: 0.8em;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
-        line-height: 1.4em;
-        max-height: calc(1.4em * 3);
-        min-height: calc(1.4em * 3);
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        margin-top: 1em;
-        font-weight: 300;
       }
-      & .badge{
-        margin-left: 1em;
-        margin-right: 1em;
-        font-weight: 300;
-      }
-      & .author {
-        font-weight: 300;
-        margin-left: 0.5em;
+      & .img {
+        width: 50px;
+        height: 50px;
+        background-color: antiquewhite;
+        border-radius: 60px;
         margin-right: 0.5em;
-        margin-top: 1em;
-        & .date {
-          font-size: 0.8em;
-        }
-        & .img {
-          width: 50px;
-          height: 50px;
-          background-color: antiquewhite;
-          border-radius: 60px;
-          margin-right: 0.5em;
-          overflow: hidden;
-        }
+        overflow: hidden;
       }
     }
   }
-  @media (max-width: 768px) { 
-    .artical-card {
-      width: 101%;
-      margin-right: 0;
-    }
+}
+@media (max-width: 768px) {
+  .artical-card {
+    width: 101%;
+    margin-right: 0;
   }
+}
 </style>

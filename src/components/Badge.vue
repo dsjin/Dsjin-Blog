@@ -1,5 +1,8 @@
 <template>
-  <div class="badge" :style="{backgroundColor: color, color: dark ? 'white' : 'black'}">
+  <div
+    class="badge"
+    :style="{ backgroundColor: color, color: dark ? 'white' : 'black' }"
+  >
     <slot />
   </div>
 </template>
@@ -11,21 +14,21 @@ export default Vue.extend({
   props: {
     color: {
       type: String,
-      default: 'white'
+      default: 'white',
     },
     dark: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 })
 </script>
 
 <style lang="scss">
-  .badge {
-    border-radius: 20px;
-    padding: 0.5em 1em 0.5em 1em;
-    width: fit-content;
-    font-size: 0.5em;
-  }
+.badge {
+  border-radius: 20px;
+  padding: 0.5em 1em 0.5em 1em;
+  width: fit-content;
+  font-size: 0.5em;
+}
 </style>

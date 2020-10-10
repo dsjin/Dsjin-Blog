@@ -56,10 +56,9 @@ import ArticlePosts from '../components/ArticleItem.vue'
 export default Vue.extend({
   name: 'Tag',
   components: {
-    ArticlePosts
-  }
+    ArticlePosts,
+  },
 })
 </script>
 
-<style>
-</style>
+<style></style>

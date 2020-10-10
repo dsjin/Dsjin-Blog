@@ -1,30 +1,27 @@
 <template>
   <Layout>
-    <div
-      class="c-header"
-    >
+    <div class="c-header">
       <div class="container">
-        <h1>
-          Blog
-        </h1>
-        <p>
-          Share more, Learn more! 
-        </p>
+        <h1>Blog</h1>
+        <p>Share more, Learn more!</p>
       </div>
     </div>
     <div class="container">
       <template v-if="$page.featurePost.edges.length !== 0">
-        <feature-article-card :info ="$page.featurePost.edges[0].node" />
+        <feature-article-card :info="$page.featurePost.edges[0].node" />
       </template>
-      <div class="latest_title _flex _row _justify_content_between _align_items_center">
+      <div
+        class="latest_title _flex _row _justify_content_between _align_items_center"
+      >
         <h1>New Arrviral</h1>
-        <a href="/latest-posts" class="more-button btn btn-primary _display_inline_block">
+        <a
+          href="/latest-posts"
+          class="more-button btn btn-primary _display_inline_block"
+        >
           MORE POSTS
         </a>
       </div>
-      <div
-        class="_flex _row _wrap"
-      >
+      <div class="_flex _row _wrap">
         <template v-for="(item, index) in $page.posts.edges">
           <article-card :key="index" :info="item.node" />
         </template>
@@ -94,25 +91,25 @@ import ArticleCard from '../components/ArticleCard.vue'
 import Vue from 'vue'
 export default Vue.extend({
   metaInfo: {
-    title: 'Home'
+    title: 'Home',
   },
   components: {
-    ArticleCard
-  }
+    ArticleCard,
+  },
 })
 </script>
 
 <style lang="scss">
 .latest_title {
-  position:-webkit-sticky;
-  position:sticky;
-  top:0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   background-color: white;
   .more-button {
     margin-right: 1.5em;
   }
 }
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
   .more-button {
     margin-right: 0em !important;
   }
@@ -124,7 +121,7 @@ export default Vue.extend({
   padding-right: 1em;
   border-radius: 15px;
   font-size: 0.75em;
-  transition: all 1s cubic-bezier(.19,1,.22,1);
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
   text-decoration: transparent;
   &-primary {
     background-color: #122140;
@@ -141,14 +138,15 @@ export default Vue.extend({
   position: relative;
   height: 300px;
   width: 100%;
-  background-color: #112D32;
+  background-color: #112d32;
   margin-top: -10px;
-  color:white;
+  color: white;
   overflow: hidden;
-  h1, p {
-    margin: 0
+  h1,
+  p {
+    margin: 0;
   }
-  &::after{
+  &::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -159,5 +157,4 @@ export default Vue.extend({
     background-size: cover;
   }
 }
-
 </style>

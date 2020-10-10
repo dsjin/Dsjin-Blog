@@ -52,16 +52,15 @@ import ArticlePosts from '../components/ArticleItem.vue'
 export default Vue.extend({
   name: 'LatestPosts',
   components: {
-    ArticlePosts
+    ArticlePosts,
   },
-  mounted () {
+  mounted() {
     console.log((this as any).$page.posts)
   },
   metaInfo: {
-    title: 'LatestPosts'
-  }
+    title: 'LatestPosts',
+  },
 })
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

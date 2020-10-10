@@ -1,16 +1,16 @@
-declare module "*.vue" {
-  import Vue from "vue";
+declare module '*.vue' {
+  import Vue from 'vue'
   export default Vue;
 }
 
-import vue from "vue"
-declare module "vue/types/options" {
+import vue from 'vue'
+declare module 'vue/types/options' {
   interface ComponentOptions<V extends Vue> {
-    metaInfo?: any
+    metaInfo?: any;
   }
 }
 
-declare module "vue/types/vue" {
+declare module 'vue/types/vue' {
   interface Vue {
     $inViewPort: (element: Element) => Boolean
   }

@@ -6,26 +6,25 @@
 
 const path = require('path')
 
-function addStyleResource (rule) {
-  rule.use('style-resource')
+function addStyleResource(rule) {
+  rule
+    .use('style-resource')
     .loader('style-resources-loader')
     .options({
-      patterns: [
-        path.resolve(__dirname, './src/assets/*.scss'),
-      ]
+      patterns: [path.resolve(__dirname, './src/assets/*.scss')],
     })
 }
 
 module.exports = {
   siteName: 'DSJIN',
-  siteDescription: "Lifestyle, Coding, etc. Blog",
+  siteDescription: 'Lifestyle, Coding, etc. Blog',
   siteUrl: 'https://blog.dsjin.tk',
   titleTemplate: `%s | DSJIN's Blog`,
   author: 'Thatchakon Jom-ud (DSJIN)',
   keywords: [],
   plugins: [
     {
-      use: 'gridsome-plugin-typescript'
+      use: 'gridsome-plugin-typescript',
     },
     {
       use: '@gridsome/source-ghost',
@@ -33,27 +32,33 @@ module.exports = {
         baseUrl: process.env.GHOST_BASE_URL,
         contentKey: process.env.GHOST_CONTENT_KEY,
         routes: {
-          post: '/post/:slug'
-        }
-      }
-    }
+          post: '/post/:slug',
+        },
+      },
+    },
+    {
+      use: '@gridsome/plugin-google-analytics',
+      options: {
+        id: process.env.GA_ID,
+      },
+    },
   ],
   templates: {
     GhostPost: '/post/:slug',
   },
-  chainWebpack (config) {
+  chainWebpack(config) {
     // Load variables for all vue-files
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-    types.forEach(type => {
+    types.forEach((type) => {
       addStyleResource(config.module.rule('scss').oneOf(type))
     })
 
     // config
     //   .plugin('BundleAnalyzerPlugin')
     //   .use(BundleAnalyzerPlugin, [{ analyzerMode: 'static' }])
-    
+
     // config
     //   .plugin('LodashModuleReplacementPlugin')
     //   .use(new LodashModuleReplacementPlugin())
-  }
+  },
 }

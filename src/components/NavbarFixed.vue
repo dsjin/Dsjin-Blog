@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-fixed" :class="{'nav-fixed-show': showDetail}">
+  <div class="nav-fixed" :class="{ 'nav-fixed-show': showDetail }">
     <div class="nav-fixed-content">
       <div class="nav-band_logo">
         {{ $static.metadata.siteName }}
@@ -8,11 +8,11 @@
         {{ title }}
       </div>
       <div class="nav-to-top">
-        <a href="#" class="nav-to-top_text" @click.prevent="toTop">
-          To Top
-        </a>
+        <a href="#" class="nav-to-top_text" @click.prevent="toTop"> To Top </a>
         <a href="#" class="nav-to-top_icon" @click.prevent="toTop">
-          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABJUlEQVRIic2VwUoCQRyHv9/oQQmJXqAN9hW8+ib2FAUe7G3qDQyqm5CHiurQMdDaJ5BOetD5d6g1s90ll1nwu80wfN/AzDBQMdqceByP92f1uisjay4Wvh3HH5mB+8mkI68L4LCMPMUgqcl323E8AljtNIQcQBB5c+fp2AHcJslBCPkaR9/Or0BzPq8FlLPuLHWY27BbAUNnoNNKAgY9h4ZCdwa9oAGZ+kIjw1+Z/I0zHsx0EiQgU9/EEOwaaGHsmePSYc//iRQG/shTtojkBnLlGxFhT0WRzIBB4t3yJVe+FkEMcMtXgyRrST1z9xBhbpAr/k1LBWt366HtbmDWaCxDi1OnA+hE0TTvFpRCvHWiaLoKANTku4Ei7zJ3/NPaIPSnXzmfIPV7/c9EyXEAAAAASUVORK5CYII=">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABJUlEQVRIic2VwUoCQRyHv9/oQQmJXqAN9hW8+ib2FAUe7G3qDQyqm5CHiurQMdDaJ5BOetD5d6g1s90ll1nwu80wfN/AzDBQMdqceByP92f1uisjay4Wvh3HH5mB+8mkI68L4LCMPMUgqcl323E8AljtNIQcQBB5c+fp2AHcJslBCPkaR9/Or0BzPq8FlLPuLHWY27BbAUNnoNNKAgY9h4ZCdwa9oAGZ+kIjw1+Z/I0zHsx0EiQgU9/EEOwaaGHsmePSYc//iRQG/shTtojkBnLlGxFhT0WRzIBB4t3yJVe+FkEMcMtXgyRrST1z9xBhbpAr/k1LBWt366HtbmDWaCxDi1OnA+hE0TTvFpRCvHWiaLoKANTku4Ei7zJ3/NPaIPSnXzmfIPV7/c9EyXEAAAAASUVORK5CYII="
+          />
         </a>
       </div>
     </div>
@@ -29,17 +29,17 @@ query {
 
 <script lang="ts">
 import Vue from 'vue'
-interface Link{
-  title: String,
+interface Link {
+  title: String
   link: String
 }
-interface Menu{
-  home: Link,
+interface Menu {
+  home: Link
   aboutMe: Link
 }
-interface Data{
-  navItem: Menu,
-  showDetail: Boolean,
+interface Data {
+  navItem: Menu
+  showDetail: Boolean
   observer: any
 }
 export default Vue.extend({
@@ -47,28 +47,28 @@ export default Vue.extend({
   props: {
     title: {
       type: String,
-      default () {
+      default() {
         return ''
-      }
-    }
+      },
+    },
   },
-  data () : Data{
+  data(): Data {
     return {
       navItem: {
         home: {
           title: 'Home',
-          link: '/'
+          link: '/',
         },
         aboutMe: {
           title: 'About me',
-          link: '#'
-        }
+          link: '#',
+        },
       },
       showDetail: false,
-      observer: null
+      observer: null,
     }
   },
-  mounted () {
+  mounted() {
     // document.addEventListener('scroll', event => {
     //   const el = document.querySelector(".post-header")
     //   this.$nextTick(()=>{
@@ -77,43 +77,47 @@ export default Vue.extend({
     //     }
     //   })
     // })
-    this.observer = new IntersectionObserver((entries, observer) => { 
-      entries.forEach(entry => {
-        this.showDetail = !entry.isIntersecting
-      });
-    }, {threshold: [0, 1]});
-    this.$nextTick(()=>{
-      const el = document.querySelector(".post-header")
+    console.log('yass')
+    this.observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          this.showDetail = !entry.isIntersecting
+        })
+      },
+      { threshold: [0, 1] }
+    )
+    this.$nextTick(() => {
+      const el = document.querySelector('.post-header')
       if (el) {
         this.observer.observe(el)
       }
     })
   },
   methods: {
-    toTop () {
+    toTop() {
       const body = document.querySelector('body')
       this.$nextTick(() => {
         if (body) {
           body.scrollIntoView({
-            behavior: 'smooth'
+            behavior: 'smooth',
           })
         }
       })
-    }
-  }
+    },
+  },
 })
 </script>
 
 <style lang="scss" scoped>
 .nav-fixed {
   display: flex;
-  position:fixed;
+  position: fixed;
   justify-content: center;
   top: 0;
   right: 0;
   left: 0;
   height: 3.25rem;
-  background: #112D32;
+  background: #112d32;
   color: rgb(202, 220, 223);
   z-index: 10;
   padding-right: 1em;
@@ -128,14 +132,14 @@ export default Vue.extend({
     overflow: hidden;
     .nav-band_logo {
       display: flex;
-      align-items: center
+      align-items: center;
     }
     .nav-title {
       width: 100%;
       height: 100%;
       display: flex;
       align-items: center;
-      transition: all 1s cubic-bezier(.19,1,.22,1);
+      transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
       transform: translateY(-100px);
       margin-left: 1em;
       margin-right: 1em;
@@ -149,7 +153,7 @@ export default Vue.extend({
       align-items: center;
       justify-content: flex-end;
       &_icon {
-        display: none
+        display: none;
       }
       a {
         color: inherit;
@@ -176,7 +180,7 @@ export default Vue.extend({
       display: none !important;
     }
     &_icon {
-      display: block !important
+      display: block !important;
     }
   }
 }
