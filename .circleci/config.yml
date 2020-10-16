@@ -1,0 +1,38 @@
+orbs:
+  node: circleci/node@4.1.0
+
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: 'cimg/base:stable'
+    steps:
+      - checkout
+      - node/install:
+          install-yarn: true
+      - node/install-packages:
+          cache-path: ~/project/node_modules
+          pkg-manager: yarn
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+  deploy_to_firebase:
+    executor: node/default
+    steps:
+      - attach_workspace:
+        at: .
+      - checkout
+      - run:
+          name: Firebase Deploy
+          command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
+
+workflow:
+  version: 1
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy_to_firebase:
+        - requires:
+            - build
