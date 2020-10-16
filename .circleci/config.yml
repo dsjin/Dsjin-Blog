@@ -19,7 +19,8 @@ jobs:
           paths:
             - .
   deploy_to_firebase:
-    executor: node/default
+    docker:
+      - image: 'cimg/base:stable'
     steps:
       - attach_workspace:
         at: .
