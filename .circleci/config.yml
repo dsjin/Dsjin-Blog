@@ -29,12 +29,8 @@ jobs:
           at: .
       - checkout
       - run:
-          name: Check Firebase
-          command: cd node_modules && cd .bin && ls
-      - checkout
-      - run:
           name: Firebase Deploy
-          command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
+          command: node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
 
 workflows:
   version: 2
