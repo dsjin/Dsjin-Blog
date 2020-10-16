@@ -29,7 +29,7 @@ jobs:
           name: Firebase Deploy
           command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
 
-workflow:
+workflows:
   version: 1
   build_and_deploy:
     jobs:
