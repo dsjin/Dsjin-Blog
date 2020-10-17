@@ -12,11 +12,16 @@
 import Vue from 'vue'
 import Navbar from '../components/Navbar.vue'
 import Footer from '../components/Footer.vue'
+import * as smoothscroll from 'smoothscroll-polyfill'
+
 export default Vue.extend({
   components: {
     Navbar,
     Footer,
   },
+  mounted () {
+    smoothscroll.polyfill()
+  }
 })
 </script>
 

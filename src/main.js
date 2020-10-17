@@ -52,5 +52,4 @@ export default function (Vue, { router, head, isClient }) {
     return !(bb.top > innerHeight || bb.bottom < 0)
   }
 
-  smoothscroll.polyfill()
 }
