@@ -8,6 +8,7 @@ import Prism from 'prismjs'
 import config from '../gridsome.config'
 import { Pager } from 'gridsome'
 import VueDisqus from 'vue-disqus'
+import smoothscroll from 'smoothscroll-polyfill'
 
 export default function (Vue, { router, head, isClient }) {
   // OG Meta Default Setting
@@ -50,4 +51,6 @@ export default function (Vue, { router, head, isClient }) {
     var bb = element.getBoundingClientRect()
     return !(bb.top > innerHeight || bb.bottom < 0)
   }
+
+  smoothscroll.polyfill()
 }

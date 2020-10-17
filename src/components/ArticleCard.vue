@@ -55,7 +55,6 @@ export default Vue.extend({
   border-radius: 20px;
   overflow: hidden;
   margin-bottom: 1em;
-  margin-right: 1em;
   color: white;
   img {
     width: 100%;

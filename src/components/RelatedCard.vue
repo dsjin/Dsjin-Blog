@@ -46,6 +46,7 @@ export default Vue.extend({
   & .info-section {
     padding: 1em;
     background-color: #3d585d;
+    height: 100%;
     & .title {
       font-size: 1.2em;
       font-weight: 700;

@@ -21,7 +21,7 @@
           MORE POSTS
         </a>
       </div>
-      <div class="_flex _row _wrap">
+      <div class="_flex _row _wrap _justify_content_between">
         <template v-for="(item, index) in $page.posts.edges">
           <article-card :key="index" :info="item.node" />
         </template>
@@ -105,14 +105,6 @@ export default Vue.extend({
   position: sticky;
   top: 0;
   background-color: white;
-  .more-button {
-    margin-right: 1.5em;
-  }
-}
-@media (max-width: 768px) {
-  .more-button {
-    margin-right: 0em !important;
-  }
 }
 .btn {
   padding-top: 0.5em;
