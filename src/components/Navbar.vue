@@ -31,7 +31,7 @@ interface Link {
 }
 interface Menu {
   home: Link
-  aboutMe: Link
+  tag: Link
 }
 interface Data {
   navItem: Menu
@@ -45,9 +45,9 @@ export default Vue.extend({
           title: 'Home',
           link: '/',
         },
-        aboutMe: {
-          title: 'About me',
-          link: '#',
+        tag: {
+          title: 'Tag',
+          link: '/tags',
         },
       },
     }
@@ -77,13 +77,8 @@ export default Vue.extend({
   height: 100%;
   max-width: 1080px;
   width: 100%;
-}
-
-@media (max-width: 768px) {
-  .nav-container {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
+  padding-right: 1em;
+  padding-left: 1em;
 }
 
 .nav-band_logo {

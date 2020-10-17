@@ -44,13 +44,14 @@ body {
 .container {
   max-width: 1080px;
   margin: 0 auto;
+  padding: 1em;
 }
 
-@media (max-width: 768px) {
-  .container {
-    margin: 10px;
-  }
-}
+// @media (max-width: 768px) {
+//   .container {
+//     margin: 10px;
+//   }
+// }
 
 .header {
   display: flex;

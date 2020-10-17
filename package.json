@@ -13,6 +13,7 @@
     "@gridsome/source-ghost": "^0.4.0",
     "gridsome": "^0.7.0",
     "prismjs": "^1.21.0",
+    "smoothscroll-polyfill": "^0.4.4",
     "vue-disqus": "^4.0.1"
   },
   "devDependencies": {
