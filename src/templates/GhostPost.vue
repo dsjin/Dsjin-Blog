@@ -237,12 +237,14 @@ export default Vue.extend({
   height: 30em;
   background-color: rgba(89, 113, 117, 0.6);
   color: white;
-  padding: 2em;
+  padding-bottom: 2em;
   background-blend-mode: multiply;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   & #expand-arrow {
     display: none;
   }

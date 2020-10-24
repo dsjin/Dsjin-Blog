@@ -143,7 +143,8 @@ export default Vue.extend({
       transform: translateY(-100px);
       margin-left: 1em;
       margin-right: 1em;
-      overflow-y: scroll;
+      overflow-x: scroll;
+      white-space: nowrap;
     }
     .nav-to-top {
       line-height: 1;
@@ -176,6 +177,7 @@ export default Vue.extend({
 }
 @media (max-width: 768px) {
   .nav-to-top {
+    min-width: fit-content !important;
     &_text {
       display: none !important;
     }
