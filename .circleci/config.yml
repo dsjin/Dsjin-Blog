@@ -3,6 +3,15 @@ orbs:
 
 version: 2.1
 
+commands:
+  install-python2:
+    description: "Install Python Version 2.7"
+    steps:
+      - run: sudo apt update
+      - run: sudo apt upgrade
+      - run: sudo apt install python2.7
+      - run: sudo ln -s /usr/bin/python2.7 /usr/bin/python2 && sudo ln -s /usr/bin/python2 /usr/bin/python
+
 jobs:
   build:
     docker:
@@ -11,6 +20,7 @@ jobs:
       - checkout
       - node/install:
           install-yarn: true
+      - install-python2
       - node/install-packages:
           cache-path: ~/project/node_modules
           pkg-manager: yarn
