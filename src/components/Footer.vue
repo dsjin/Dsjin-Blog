@@ -36,17 +36,17 @@ export default Vue.extend({
   }
   & .inner {
     height: 40%;
-    width: 100%;
+    width: calc(100% - 2em);
     color: white;
     font-weight: 300;
     p {
       z-index: 1;
     }
   }
-  @media (max-width: 768px) {
-    & .container {
-      width: calc(100% - 20px);
-    }
-  }
+  // @media (max-width: 768px) {
+  //   & .container {
+  //     width: calc(100% - 20px);
+  //   }
+  // }
 }
 </style>
