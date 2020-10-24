@@ -44,6 +44,7 @@ body {
   /* padding-left: 20px; */
   /* padding-right: 20px; */
   /* padding-top: 3.8rem; */
+  min-height: calc(100vh - 3.25rem - 300px);
 }
 
 .container {
