@@ -58,6 +58,32 @@
         </template>
       </div>
     </div>
+    <div class="container _flex _column _align_items_center">
+      <span
+        class="mb-1"
+      >
+        Share on :
+      </span>
+      <div class="_flex">
+        <share-network
+          network="facebook"
+          :url="postUrl"
+          :title="$page.post.meta_title"
+          :description="$page.post.meta_description"
+          class="mr-1"
+        >
+          Facebook
+        </share-network>
+        <share-network
+          network="twitter"
+          :url="postUrl"
+          :title="$page.post.meta_title"
+          :description="$page.post.meta_description"
+        >
+          Twitter
+        </share-network>
+      </div>
+    </div>
     <div class="container mt-2">
       <disqus :shortname="shortName" :identifier="$page.post.path" />
     </div>
@@ -220,6 +246,9 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+$facebook-color: #3b5998;
+$twitter-color: #00acee;
+
 @keyframes updown {
   0% {
     transform: translateY(10px);
@@ -327,6 +356,25 @@ export default Vue.extend({
         }
       }
     }
+  }
+}
+@mixin share-network {
+  padding: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.share-network {
+  &-facebook {
+    @include share-network;
+    background-color: $facebook-color;
+    color: white
+  }
+  &-twitter {
+    @include share-network;
+    background-color: $twitter-color;
+    color: white
   }
 }
 </style>

@@ -8,7 +8,7 @@ import Prism from 'prismjs'
 import config from '../gridsome.config'
 import { Pager } from 'gridsome'
 import VueDisqus from 'vue-disqus'
-import smoothscroll from 'smoothscroll-polyfill'
+import VueSocialSharing from 'vue-social-sharing'
 
 export default function (Vue, { router, head, isClient }) {
   // OG Meta Default Setting
@@ -37,11 +37,12 @@ export default function (Vue, { router, head, isClient }) {
       property: 'og:description',
       content: config.siteDescription,
     },
-    // { key:"og:image", property: "og:image", content: '' },
+    { key:"og:image", property: "og:image", content: 'https://blog.dsjin.tk/default.png' },
     { property: 'og:site_name', content: config.siteName }
   )
   // Set default layout as a global component
   Vue.use(VueDisqus)
+  Vue.use(VueSocialSharing)
   Vue.component('Layout', DefaultLayout)
   Vue.component('FeatureArticleCard', FeatureArticleCard)
   Vue.component('Badge', Badge)
