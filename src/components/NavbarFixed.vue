@@ -77,7 +77,6 @@ export default Vue.extend({
     //     }
     //   })
     // })
-    console.log('yass')
     this.observer = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
