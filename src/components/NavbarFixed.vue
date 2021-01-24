@@ -144,6 +144,11 @@ export default Vue.extend({
       margin-right: 1em;
       overflow-x: scroll;
       white-space: nowrap;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
     .nav-to-top {
       line-height: 1;
