@@ -1,35 +1,39 @@
 <template>
-  <div class="artical-card">
-    <div class="img-section">
-      <g-image :src="info.coverImage ? info.coverImage : '/default.png'" />
-    </div>
-    <div class="info-section">
-      <div
-        v-for="(tag, index) in info.tags"
-        :key="index"
-        class="_flex badge-container"
-      >
-        <badge class="mr-1">
-          {{ tag.name }}
-        </badge>
+  <div class="article-container _flex _column _wrap">
+    <div class="article-card _flex _column">
+      <div class="img-section">
+        <g-image :src="info.coverImage ? info.coverImage : '/default.png'" />
       </div>
-      <div class="mt-1">
-        <a :href="`/post/${info.slug}`" class="title">
-          {{ info.title }}
-        </a>
-        <div class="article-content">
-          {{ info.description }}
+      <div class="info-section _flex _column">
+        <div
+          v-for="(tag, index) in info.tags"
+          :key="index"
+          class="_flex _wrap badge-container"
+        >
+          <badge class="mt-1">
+            {{ tag.name }}
+          </badge>
         </div>
-      </div>
-      <div class="_flex author">
-        <div class="img">
-          <template v-if="info.authors[0].profile_image">
-            <g-image :src="info.authors[0].profile_image" />
-          </template>
+        <div class="main-content mt-1">
+          <h1 class="title">
+            <a :href="`/post/${info.slug}`">
+              {{ info.title }}
+            </a>
+          </h1>
+          <div class="article-content">
+            {{ info.description }}
+          </div>
         </div>
-        <div class="_flex _column">
-          <p class="cm">{{ info.authors[0].name }}</p>
-          <p class="cm date">{{ info.date }}</p>
+        <div class="_flex author">
+          <div class="img">
+            <template v-if="info.authors[0].profile_image">
+              <g-image :src="info.authors[0].profile_image" />
+            </template>
+          </div>
+          <div class="_flex _column">
+            <p class="cm">{{ info.authors[0].name }}</p>
+            <p class="cm date">{{ info.date }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -50,12 +54,13 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-.artical-card {
-  width: calc(33.33% - 1em);
+.article-card {
+  // width: calc(33.33% - 1em);
   border-radius: 20px;
   overflow: hidden;
   margin-bottom: 1em;
   color: white;
+  height: 100%;
   img {
     width: 100%;
     height: 100%;
@@ -73,8 +78,13 @@ export default Vue.extend({
       font-weight: 700;
       margin-left: 0.5rem;
       margin-right: 0.5rem;
-      text-decoration: none;
-      color: inherit;
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+    & .main-content {
+      flex-grow: 1
     }
     & .article-content {
       font-size: 0.8em;
@@ -83,17 +93,17 @@ export default Vue.extend({
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 3;
-      line-height: 1.4em;
-      max-height: calc(1.4em * 3);
-      min-height: calc(1.4em * 3);
+      line-height: 1.6em;
+      max-height: calc(1.6em * 3);
+      min-height: calc(1.6em * 3);
       margin-left: 0.5rem;
       margin-right: 0.5rem;
       margin-top: 1em;
       font-weight: 300;
     }
     & .badge {
-      margin-left: 1em;
-      margin-right: 1em;
+      margin-left: 0.3em;
+      margin-right: 0.3em;
       font-weight: 300;
     }
     & .author {
@@ -111,14 +121,21 @@ export default Vue.extend({
         border-radius: 60px;
         margin-right: 0.5em;
         overflow: hidden;
+        flex-shrink: 0;
       }
     }
   }
 }
-@media (max-width: 768px) {
-  .artical-card {
-    width: 101%;
-    margin-right: 0;
+.article-container {
+  flex: 0 0 100%
+}
+@media (min-width: 768px) {
+  // .article-card {
+  //   // width: 101%;
+  //   // margin-right: 0;
+  // }
+  .article-container {
+    flex: 0 0 calc(33.333333% - 1em)
   }
 }
 </style>

@@ -4,21 +4,23 @@
       <div
         v-for="(tag, index) in info.tags"
         :key="index"
-        class="_flex badge-container"
+        class="_flex _wrap badge-container"
       >
-        <badge class="mr-1">
+        <badge class="mt-1">
           {{ tag.name }}
         </badge>
       </div>
-      <div class="mt-1">
-        <a :href="`/post/${info.slug}`" class="title">
-          {{ info.title }}
-        </a>
+      <div class="mt-2">
+        <h1 class="title">
+          <a :href="`/post/${info.slug}`">
+            {{ info.title }}
+          </a>
+        </h1>
         <div class="article-content">
           {{ info.description }}
         </div>
       </div>
-      <div class="_flex author">
+      <div class="_flex author mt-2">
         <div class="img">
           <template v-if="info.authors[0].profile_image">
             <g-image :src="info.authors[0].profile_image" />
@@ -63,15 +65,19 @@ export default Vue.extend({
   & .info-section {
     width: 45%;
     background-color: #3d585d;
-    padding: 5px;
+    padding: 1em;
     color: white;
     & .title {
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
       font-size: 1.2em;
       font-weight: 700;
       margin-left: 0.5rem;
       margin-right: 0.5rem;
-      text-decoration: none;
-      color: inherit;
+      margin-top: 0;
+      margin-bottom: 0;
     }
     & .article-content {
       font-size: 0.8em;
@@ -80,17 +86,21 @@ export default Vue.extend({
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 3;
-      line-height: 1.4em;
-      max-height: calc(1.4em * 3);
+      line-height: 1.6em;
+      max-height: calc(1.6em * 3);
       margin-left: 0.5rem;
       margin-right: 0.5rem;
       margin-top: 1em;
       font-weight: 300;
     }
     & .badge-container {
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
+      // margin-left: 0.5rem;
+      // margin-right: 0.5rem;
       font-weight: 300;
+      & .badge {
+        margin-left: 0.3rem;
+        margin-right: 0.3rem;
+      }
     }
     & .author {
       font-weight: 300;
@@ -105,6 +115,7 @@ export default Vue.extend({
         background-color: antiquewhite;
         border-radius: 60px;
         margin-right: 0.5em;
+        flex-shrink: 0;
         overflow: hidden;
         & img {
           width: 100%;
