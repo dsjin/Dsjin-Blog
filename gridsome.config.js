@@ -6,14 +6,14 @@
 
 const path = require('path')
 
-function addStyleResource(rule) {
-  rule
-    .use('style-resource')
-    .loader('style-resources-loader')
-    .options({
-      patterns: [path.resolve(__dirname, './src/assets/*.scss')],
-    })
-}
+// function addStyleResource(rule) {
+//   rule
+//     .use('style-resource')
+//     .loader('style-resources-loader')
+//     .options({
+//       patterns: [path.resolve(__dirname, './src/assets/*.scss')],
+//     })
+// }
 
 module.exports = {
   siteName: 'DSJIN',
@@ -46,12 +46,23 @@ module.exports = {
   templates: {
     GhostPost: '/post/:slug',
   },
+  icon: {
+    favicon: {
+      src: './src/favicon.png',
+      sizes: [16, 32, 96]
+    },
+    touchicon: {
+      src: './src/apple-touch-icon.png',
+      sizes: [76, 152, 120, 167],
+      precomposed: true
+    }
+  },
   chainWebpack(config) {
     // Load variables for all vue-files
-    const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-    types.forEach((type) => {
-      addStyleResource(config.module.rule('scss').oneOf(type))
-    })
+    // const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+    // types.forEach((type) => {
+    //   addStyleResource(config.module.rule('scss').oneOf(type))
+    // })
 
     // config
     //   .plugin('BundleAnalyzerPlugin')
