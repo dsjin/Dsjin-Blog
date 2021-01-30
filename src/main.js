@@ -8,6 +8,7 @@ import Prism from 'prismjs'
 import config from '../gridsome.config'
 import { Pager } from 'gridsome'
 import VueDisqus from 'vue-disqus'
+import '~/assets/_space_helper.scss'
 import VueSocialSharing from 'vue-social-sharing'
 
 export default function (Vue, { router, head, isClient }) {
