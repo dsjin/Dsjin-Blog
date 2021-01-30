@@ -19,7 +19,7 @@ export default Vue.extend({
 <style lang="scss">
 .footer {
   width: 100%;
-  height: 300px;
+  height: 40vh;
   position: relative;
   &::before {
     content: '';

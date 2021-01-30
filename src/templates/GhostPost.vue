@@ -43,21 +43,21 @@
     <div class="post-content container">
       <div v-html="content" />
     </div>
-    <div class="post-related mt-5 container">
-      <div class="_flex _align_items_center mb-1">
-        <h2 class="mt-0 mb-0">More In</h2>
-        <badge color="#112D32" dark class="ml-1">{{
-          $page.post.tags[0].name
-        }}</badge>
-      </div>
-      <div class="_flex _row _wrap">
-        <template v-if="relatedPost">
+    <template v-if="relatedPost && relatedPost.edges.length > 0">
+      <div class="post-related mt-5 container">
+        <div class="_flex _align_items_center mb-1">
+          <h2 class="mt-0 mb-0">More In</h2>
+          <badge color="#112D32" dark class="ml-1">{{
+            $page.post.tags[0].name
+          }}</badge>
+        </div>
+        <div class="_flex _row _wrap">
           <template v-for="(item, index) in relatedPost.edges">
             <related-card :key="index" :info="item.node" />
           </template>
-        </template>
+        </div>
       </div>
-    </div>
+    </template>
     <div class="container _flex _column _align_items_center">
       <span
         class="mb-1"
@@ -260,6 +260,13 @@ $twitter-color: #00acee;
     transform: translateY(10px);
   }
 }
+hr {
+  padding: 0;
+  height: 1px;
+  border: 0;
+  width: 70%;
+  border-top: 1px solid black;
+}
 .post-header {
   position: relative;
   z-index: 20;
@@ -334,6 +341,11 @@ $twitter-color: #00acee;
     }
   }
 }
+.kg-card {
+  border: 1px solid #112d3267;
+  border-radius: 10px;
+  overflow: hidden;
+}
 .post-content {
   img {
     width: 100%;
@@ -343,6 +355,12 @@ $twitter-color: #00acee;
     margin: 0.8em 0 2.3em;
     figcaption {
       text-align: center;
+    }
+    &.kg-image-card {
+      figcaption {
+        margin-top: .5em;
+        margin-bottom: .5em;
+      }
     }
     .kg-gallery-container {
       display: flex;
