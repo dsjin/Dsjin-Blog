@@ -68,7 +68,7 @@
       node {
         title
         description: excerpt
-        date: published_at (format: "'YY/MM/DD'")
+        date: published_at (format: "'YY/MM/DD")
         slug
         id
         coverImage: feature_image

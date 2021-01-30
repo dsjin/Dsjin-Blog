@@ -2,7 +2,7 @@
   <footer class="footer _flex _column _justify_content_end">
     <div class="container _flex _column _justify_content_center inner">
       <p>
-        Made With 💗 By DSJIN © 2020 | icons by
+        Made With 💗 By <a href="https://dsjin.tk" target="_blank">DSJIN</a> © 2020 | icons by
         <a href="https://icons8.com/">icons8</a>
       </p>
     </div>
