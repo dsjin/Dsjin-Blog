@@ -6,11 +6,13 @@
       </div>
       <div class="info-section _flex _column">
         <div
-          v-for="(tag, index) in info.tags"
-          :key="index"
           class="_flex _wrap badge-container"
         >
-          <badge class="mt-1">
+          <badge
+            v-for="(tag, index) in info.tags"
+            :key="index"
+            class="mt-1"
+          >
             {{ tag.name }}
           </badge>
         </div>
@@ -73,6 +75,7 @@ export default Vue.extend({
     padding: 1em;
     background-color: #3d585d;
     height: 100%;
+    flex: 1;
     & .title {
       font-size: 1.2em;
       font-weight: 700;
