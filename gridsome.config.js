@@ -51,8 +51,8 @@ module.exports = {
             priority: 0.7,
             lastmod: '2021-05-20',
           },
-          '/tags/*': {
-            changefreq: 'weekly',
+          '/tag/*': {
+            changefreq: 'monthly',
             priority: 0.5,
             lastmod: '2020-05-20',
           }
