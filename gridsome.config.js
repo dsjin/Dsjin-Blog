@@ -42,6 +42,23 @@ module.exports = {
         id: process.env.GA_ID,
       },
     },
+    {
+      use: '@gridsome/plugin-sitemap',
+      options: {
+        config: {
+          '/post/*': {
+            changefreq: 'weekly',
+            priority: 0.7,
+            lastmod: '2021-05-20',
+          },
+          '/tags/*': {
+            changefreq: 'weekly',
+            priority: 0.5,
+            lastmod: '2020-05-20',
+          }
+        }
+      }
+    }
   ],
   templates: {
     GhostPost: '/post/:slug',
