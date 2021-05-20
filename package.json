@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@gridsome/plugin-google-analytics": "^0.1.2",
+    "@gridsome/plugin-sitemap": "^0.4.0",
     "@gridsome/source-ghost": "^0.4.0",
     "@types/smoothscroll-polyfill": "^0.3.1",
     "gridsome": "^0.7.0",
