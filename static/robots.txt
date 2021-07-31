@@ -1,1 +1,2 @@
 Sitemap: https://blog.dsjin.tk/sitemap.xml
+Sitemap: https://blog.dsjin.co/sitemap.xml

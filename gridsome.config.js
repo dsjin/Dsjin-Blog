@@ -18,7 +18,7 @@ const path = require('path')
 module.exports = {
   siteName: 'DSJIN',
   siteDescription: 'Lifestyle, Coding, etc. Blog',
-  siteUrl: 'https://blog.dsjin.tk',
+  siteUrl: 'https://blog.dsjin.co',
   titleTemplate: `%s | DSJIN's Blog`,
   author: 'Thatchakon Jom-ud (DSJIN)',
   keywords: [],
