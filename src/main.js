@@ -38,7 +38,7 @@ export default function (Vue, { router, head, isClient }) {
       property: 'og:description',
       content: config.siteDescription,
     },
-    { key:"og:image", property: "og:image", content: 'https://blog.dsjin.tk/default.png' },
+    { key:"og:image", property: "og:image", content: 'https://blog.dsjin.co/default.png' },
     { property: 'og:site_name', content: config.siteName }
   )
   // Set default layout as a global component
