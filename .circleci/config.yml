@@ -27,6 +27,7 @@ jobs:
       - node/install-packages:
           cache-path: ~/project/node_modules
           pkg-manager: yarn
+          no_output_timeout: 20m
       - run:
           name: Generate Static File
           command: yarn build
