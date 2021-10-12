@@ -27,7 +27,7 @@ jobs:
       - node/install-packages:
           cache-path: ~/project/node_modules
           pkg-manager: yarn
-          override-ci-command: 'yarn install --frozen-lockfile --verbose'
+          override-ci-command: 'yarn install --frozen-lockfile'
       - run:
           name: Generate Static File
           command: yarn build
