@@ -395,4 +395,18 @@ hr {
     color: white
   }
 }
+table {
+  width: 100%;
+  td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #112d32;
+    color: white;
+  }
+}
 </style>
